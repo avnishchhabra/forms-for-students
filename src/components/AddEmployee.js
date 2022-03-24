@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import "./add.css";
 
@@ -18,6 +19,19 @@ const AddEmployee = ({ employees, setEmployees }) => {
     setEmployees([...employees, employee]);
     setName("");
     setEmail("");
+    // send employees list to backend
+    // fetch("https://mockapi.io/projects/623c802d8e9af58789520cdb/employees", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(employee),
+    // });
+    axios.post(
+      "https://mockapi.io/projects/623c802d8e9af58789520cdb/employees",
+      employee
+    );
   };
   return (
     <div className="my-form">
